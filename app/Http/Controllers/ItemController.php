@@ -68,7 +68,7 @@ public function searchItems(Request $request) {
     ->where('name', $item_name)
     ->first(['url']);  
 
-    if(count($items) > 0){
+    if(count((array)$items) > 0){
         return redirect(url('/item/' . $items->url));
     } else {
         // Return results based on title
